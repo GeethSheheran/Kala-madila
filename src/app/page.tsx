@@ -9,15 +9,22 @@ import CTA from "@/components/sections/CTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="relative">
       <Navbar />
       <Hero />
-      <About />
-      <Experience />
-      <WeddingStory />
-      <WhyChoose />
-      <CTA />
-      <Footer />
+
+      {/* Spacer to allow Hero visibility initially */}
+      <div className="h-screen pointer-events-none" />
+
+      {/* Content that scrolls over the Hero */}
+      <div className="relative z-10 bg-white">
+        <About />
+        <Experience />
+        <WeddingStory />
+        <WhyChoose />
+        <CTA />
+        <Footer />
+      </div>
     </main>
   );
 }

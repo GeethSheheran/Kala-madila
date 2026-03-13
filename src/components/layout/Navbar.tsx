@@ -74,10 +74,7 @@ const Navbar = () => {
                         <img
                             src="/logo.png"
                             alt="Kala Mandila Logo"
-                            className={cn(
-                                "w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500",
-                                isMenuOpen ? "brightness-0" : "brightness-0 invert"
-                            )}
+                            className="w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500"
                         />
                         {/* <div className={cn("flex flex-col leading-none transition-colors duration-500", navTextColor)}>
                             <span className="text-sm md:text-lg font-serif font-black tracking-tighter uppercase">KALA</span>
