@@ -11,7 +11,7 @@ const About = () => {
                 <img
                     src="/aboutbg.png"
                     alt=""
-                    className="w-full h-full object-cover grayscale opacity-15"
+                    className="w-full h-full object-cover grayscale opacity-10"
                 />
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-white" />
             </div>
