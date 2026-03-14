@@ -37,7 +37,7 @@ const Experience = () => {
                         viewport={{ once: true }}
                         className="flex flex-col items-center gap-4 mb-6"
                     >
-                        <span className="text-secondary text-[10px] uppercase tracking-[0.5em] font-black">
+                        <span className="text-black text-[10px] uppercase tracking-[0.5em]">
                             A Journey Into Tradition
                         </span>
                         <div className="w-16 h-[1px] bg-secondary/30" />
@@ -49,7 +49,7 @@ const Experience = () => {
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className="text-5xl md:text-7xl font-serif text-black leading-tight tracking-tight"
                     >
-                        Your Kala Mandila <span className="italic">Experience</span>
+                        Your Kala Mandila <span className="italic text-accent">Experience</span>
                     </motion.h2>
                 </div>
 

@@ -61,7 +61,7 @@ const About = () => {
                             className="flex items-center gap-4"
                         >
                             <div className="w-12 h-[1px] bg-accent" />
-                            <span className="text-black text-[10px] uppercase tracking-[0.4em] font-bold">
+                            <span className="text-black text-[10px] uppercase tracking-[0.4em]">
                                 Where Culture Becomes Your Story
                             </span>
                         </motion.div>
