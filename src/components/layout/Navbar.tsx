@@ -100,7 +100,7 @@ const Navbar = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className={cn(
-                            "hidden md:block px-10 py-4 text-[9px] uppercase tracking-[0.2em] font-black rounded-custom transition-all duration-500 shadow-2xl",
+                            "hidden md:block px-10 py-4 text-[9px] uppercase tracking-[0.2em] rounded-custom transition-all duration-500 shadow-2xl",
                             isMenuOpen
                                 ? "bg-black text-white hover:bg-accent hover:text-black"
                                 : "bg-white text-black hover:bg-accent hover:text-black"

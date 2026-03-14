@@ -31,9 +31,9 @@ const WhyChoose = () => {
                             viewport={{ once: true }}
                             className="flex items-center gap-4 mb-8"
                         >
-                            <div className="w-12 h-[1px] bg-accent" />
-                            <h2 className="text-4xl md:text-6xl font-serif text-black tracking-tight">
-                                Why <span className="italic text-secondary">Kala Mandila</span>
+                              {/* <div className="w-12 h-[1px] bg-accent" /> */}
+                            <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight">
+                                Why <span className="italic text-accent">Kala Mandila</span>
                             </h2>
                         </motion.div>
 
@@ -47,7 +47,7 @@ const WhyChoose = () => {
                                     transition={{ delay: idx * 0.1, duration: 0.6 }}
                                     className="space-y-5"
                                 >
-                                    <div className="w-14 h-14 bg-monochrome-50 flex items-center justify-center rounded-custom text-secondary border border-monochrome-100 group">
+                                    <div className="w-14 h-14 bg-accent/10 flex items-center justify-center rounded-custom text-accent border border-monochrome-100 group">
                                         <item.icon size={26} className="group-hover:scale-110 transition-transform duration-500" />
                                     </div>
                                     <h3 className="text-2xl font-serif tracking-tight">{item.title}</h3>

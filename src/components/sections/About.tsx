@@ -5,8 +5,18 @@ import { motion } from "framer-motion";
 
 const About = () => {
     return (
-        <section id="about" className="py-24 md:py-48 bg-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="about" className="py-24 md:py-48 bg-white overflow-hidden relative">
+            {/* Background Image Element */}
+            <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none overflow-hidden select-none z-0">
+                <img
+                    src="/aboutbg.png"
+                    alt=""
+                    className="w-full h-full object-cover grayscale opacity-15"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-white" />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
                     {/* Imagery side */}
                     <div className="relative">

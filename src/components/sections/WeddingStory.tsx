@@ -15,7 +15,7 @@ const WeddingStory = () => {
                             viewport={{ once: true }}
                             className="flex items-center gap-4"
                         >
-                            <span className="text-accent text-[10px] uppercase tracking-[0.5em] font-black underline underline-offset-8 decoration-accent/30">
+                            <span className="text-accent text-[10px] uppercase tracking-[0.5em] underline underline-offset-8 decoration-accent/30">
                                 The Traditional Wedding Story
                             </span>
                         </motion.div>

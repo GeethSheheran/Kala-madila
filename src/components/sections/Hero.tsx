@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
     return (
-        <section id="home" className="fixed inset-0 z-0 w-full h-screen flex items-center md:items-end justify-center md:justify-start overflow-hidden">
+        <section id="home" className="sticky top-0 z-[1] w-full h-screen flex items-center md:items-end justify-center md:justify-start overflow-hidden">
             {/* Background with Parallax effect */}
             {/* Video Background */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
