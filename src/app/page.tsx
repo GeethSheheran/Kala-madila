@@ -31,7 +31,7 @@ export default function Home() {
       {/* Hero Section (Sticky Reveal) */}
       <Hero onBookNow={() => setIsInquiryModalOpen(true)} />
 
-      {/* Main Content (Scrolls over Hero) */}
+      {/* Main Content */}
       <div className="relative z-10 bg-white shadow-[0_-32px_64px_-16px_rgba(0,0,0,0.1)]">
         <About />
         <Experience />

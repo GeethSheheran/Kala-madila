@@ -21,7 +21,7 @@ const perfectFor = [
 
 const WhyChoose = () => {
     return (
-        <section id="why-choose" className="py-24 md:py-48 bg-white overflow-hidden">
+        <section id="why-choose" className="py-24 md:py-28 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-stretch">
                     <div>
