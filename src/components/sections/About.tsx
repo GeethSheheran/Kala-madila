@@ -58,10 +58,10 @@ const About = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="flex items-center gap-4"
+                            className="flex items-center justify-center lg:justify-start gap-4"
                         >
                             <div className="w-12 h-[1px] bg-accent" />
-                            <span className="text-black text-[10px] uppercase tracking-[0.4em]">
+                            <span className="text-black text-[10px] uppercase tracking-[0.4em] text-center lg:text-left">
                                 Where Culture Becomes Your Story
                             </span>
                         </motion.div>
@@ -71,13 +71,13 @@ const About = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2, duration: 0.8 }}
-                            className="text-3xl md:text-5xl font-serif leading-[1.1] text-black tracking-tight"
+                            className="text-3xl md:text-5xl font-serif leading-[1.1] text-black tracking-tight text-center lg:text-left"
                         >
                             Experience Sri Lanka <br />
                             in a <span className="italic text-primary">Meaningful Way</span>
                         </motion.h2>
 
-                        <div className="space-y-6">
+                        <div className="space-y-6 text-center lg:text-left">
                             <motion.p
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}

@@ -29,10 +29,10 @@ const WhyChoose = () => {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="flex items-center gap-4 mb-8"
+                            className="flex flex-col lg:flex-row items-center lg:items-center gap-4 mb-8"
                         >
                               {/* <div className="w-12 h-[1px] bg-accent" /> */}
-                            <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight">
+                            <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight text-center lg:text-left w-full">
                                 Why <span className="italic text-accent">Kala Mandila</span>
                             </h2>
                         </motion.div>
@@ -45,13 +45,15 @@ const WhyChoose = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                    className="space-y-5"
+                                    className="flex gap-6 items-start group"
                                 >
-                                    <div className="w-14 h-14 bg-accent/10 flex items-center justify-center rounded-custom text-accent border border-monochrome-100 group">
-                                        <item.icon size={26} className="group-hover:scale-110 transition-transform duration-500" />
+                                    <div className="flex-shrink-0 w-14 h-14 bg-accent/10 flex items-center justify-center rounded-custom text-accent border border-monochrome-100 transition-all duration-500 group-hover:bg-accent group-hover:text-white">
+                                        <item.icon size={26} className="transition-transform duration-500" />
                                     </div>
-                                    <h3 className="text-2xl font-serif tracking-tight">{item.title}</h3>
-                                    <p className="text-base text-monochrome-600 leading-relaxed font-sans font-extralight">{item.desc}</p>
+                                    <div className="space-y-3">
+                                        <h3 className="text-2xl font-serif tracking-tight">{item.title}</h3>
+                                        <p className="text-base text-monochrome-600 leading-relaxed font-sans font-extralight">{item.desc}</p>
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>
@@ -62,7 +64,7 @@ const WhyChoose = () => {
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="text-3xl font-serif mb-12 text-primary tracking-tight"
+                            className="text-3xl md:text-5xl font-serif mb-12 text-primary tracking-tight text-center md:text-left"
                         >
                             Perfect For
                         </motion.h3>

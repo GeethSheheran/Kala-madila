@@ -79,7 +79,7 @@ const FAQ = () => {
                     viewport={{ once: true }}
                     className="text-center mb-20 space-y-4"
                 >
-                    <h2 className="text-4xl md:text-6xl font-serif tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-serif tracking-tight">
                         Common <span className="italic text-accent">Questions</span>
                     </h2>
                     <p className="text-monochrome-600 font-sans font-extralight uppercase tracking-widest text-[10px]">
@@ -111,9 +111,9 @@ const FAQ = () => {
                     viewport={{ once: true }}
                     className="mt-20 text-center"
                 >
-                    <p className="text-monochrome-400 font-sans text-sm italic">
+                    {/* <p className="text-monochrome-400 font-sans text-sm italic">
                         Still have questions? <a href="#contact" className="text-accent underline hover:text-secondary-foreground transition-colors">Reach out to us</a> directly.
-                    </p>
+                    </p> */}
                 </motion.div>
             </div>
         </section>

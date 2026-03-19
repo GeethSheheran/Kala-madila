@@ -2,10 +2,16 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, User, Mail, Phone, Calendar, MessageSquare } from "lucide-react";
+import { Send, User, Mail, Phone, Calendar, MessageSquare, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatePresence } from "framer-motion";
 
-const InquiryForm = () => {
+interface InquiryFormProps {
+    isOpen?: boolean;
+    onClose?: () => void;
+}
+
+const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -32,11 +38,11 @@ const InquiryForm = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    return (
-        <section id="contact" className="py-24 md:py-48 bg-monochrome-50 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-                    {/* Left Side: Content */}
+    const formContent = (
+        <div className={cn("max-w-7xl mx-auto", !isOpen && "px-6", isOpen && "max-w-4xl pt-12 pb-20")}>
+            <div className={cn("grid grid-cols-1 gap-20 items-start", !isOpen && "lg:grid-cols-2")}>
+                {/* Left Side: Content (Hidden in Modal) */}
+                {!isOpen && (
                     <div className="space-y-8">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -44,7 +50,7 @@ const InquiryForm = () => {
                             viewport={{ once: true }}
                             className="space-y-4"
                         >
-                            <h2 className="text-4xl md:text-6xl font-serif text-black tracking-tight leading-tight">
+                            <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight leading-tight">
                                 Start Your <span className="italic text-accent">Journey</span> With Us
                             </h2>
                             <p className="text-lg text-monochrome-600 font-sans font-extralight max-w-md leading-relaxed">
@@ -77,128 +83,185 @@ const InquiryForm = () => {
                             ))}
                         </div>
                     </div>
+                )}
 
-                    {/* Right Side: Form */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-white p-8 md:p-12 shadow-2xl relative"
-                    >
-                        {isSubmitted ? (
-                            <div className="h-[500px] flex flex-col items-center justify-center text-center space-y-6">
-                                <div className="w-20 h-20 bg-accent/10 text-accent flex items-center justify-center rounded-full">
-                                    <Send size={32} />
-                                </div>
-                                <h3 className="text-2xl font-serif">Message Sent!</h3>
-                                <p className="text-monochrome-600 font-sans font-extralight">
-                                    Thank you for reaching out. We'll be in touch soon.
-                                </p>
-                                <button
-                                    onClick={() => setIsSubmitted(false)}
-                                    className="text-accent underline uppercase text-xs tracking-widest font-bold"
-                                >
-                                    Send another message
-                                </button>
+                {/* Right Side: Form (Full width in Modal) */}
+                <motion.div
+                    initial={isOpen ? { opacity: 0, y: 100 } : { opacity: 0, y: 30 }}
+                    animate={isOpen ? { opacity: 1, y: 0 } : undefined}
+                    whileInView={!isOpen ? { opacity: 1, y: 0 } : undefined}
+                    viewport={{ once: true }}
+                    className={cn(
+                        "bg-white p-8 md:p-12 shadow-2xl relative",
+                        isOpen && "rounded-custom"
+                    )}
+                >
+                    {isOpen && (
+                        <button
+                            onClick={onClose}
+                            className="absolute top-6 right-6 p-2 text-monochrome-400 hover:text-black transition-colors"
+                        >
+                            <X size={24} />
+                        </button>
+                    )}
+
+                    {isOpen && (
+                        <div className="mb-12 text-center space-y-4">
+                            <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight leading-tight">
+                                Start Your <span className="italic text-accent">Journey</span>
+                            </h2>
+                            <p className="text-sm text-monochrome-600 font-sans font-extralight">
+                                Capture your Sri Lankan story with Kala Mandila.
+                            </p>
+                        </div>
+                    )}
+
+                    {isSubmitted ? (
+                        <div className="h-[400px] flex flex-col items-center justify-center text-center space-y-6">
+                            <div className="w-20 h-20 bg-accent/10 text-accent flex items-center justify-center rounded-full">
+                                <Send size={32} />
                             </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Full Name</label>
-                                        <div className="relative">
-                                            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
-                                            <input
-                                                required
-                                                type="text"
-                                                name="name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                placeholder="John Doe"
-                                                className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Email Address</label>
-                                        <div className="relative">
-                                            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
-                                            <input
-                                                required
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                placeholder="john@example.com"
-                                                className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Phone Number</label>
-                                        <div className="relative">
-                                            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
-                                            <input
-                                                type="tel"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                placeholder="+94 77 123 4567"
-                                                className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Event Date</label>
-                                        <div className="relative">
-                                            <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
-                                            <input
-                                                type="date"
-                                                name="date"
-                                                value={formData.date}
-                                                onChange={handleChange}
-                                                className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
+                            <h3 className="text-2xl font-serif">Message Sent!</h3>
+                            <p className="text-monochrome-600 font-sans font-extralight">
+                                Thank you for reaching out. We'll be in touch soon.
+                            </p>
+                            <button
+                                onClick={() => setIsSubmitted(false)}
+                                className="text-accent underline uppercase text-xs tracking-widest font-bold"
+                            >
+                                Send another message
+                            </button>
+                        </div>
+                    ) : (
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Message</label>
+                                    <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Full Name</label>
                                     <div className="relative">
-                                        <MessageSquare className="absolute left-4 top-6 text-monochrome-300" size={16} />
-                                        <textarea
+                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
+                                        <input
                                             required
-                                            name="message"
-                                            value={formData.message}
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
                                             onChange={handleChange}
-                                            rows={4}
-                                            placeholder="Tell us about your event..."
-                                            className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm resize-none"
+                                            placeholder="John Doe"
+                                            className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
                                         />
                                     </div>
                                 </div>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Email Address</label>
+                                    <div className="relative">
+                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
+                                        <input
+                                            required
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder="john@example.com"
+                                            className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
 
-                                <button
-                                    disabled={isSubmitting}
-                                    type="submit"
-                                    className="w-full py-5 bg-black text-white text-[10px] uppercase tracking-[0.3em] font-black hover:bg-accent transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed group flex items-center justify-center gap-3"
-                                >
-                                    {isSubmitting ? "Sending..." : "Send Inquiry"}
-                                    {!isSubmitting && <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-                                </button>
-                            </form>
-                        )}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Phone Number</label>
+                                    <div className="relative">
+                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            placeholder="+94 77 123 4567"
+                                            className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Event Date</label>
+                                    <div className="relative">
+                                        <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-monochrome-300" size={16} />
+                                        <input
+                                            type="date"
+                                            name="date"
+                                            value={formData.date}
+                                            onChange={handleChange}
+                                            className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
 
-                        {/* Decoration */}
-                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/5 -z-10 blur-2xl" />
-                        <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/5 -z-10 blur-3xl" />
-                    </motion.div>
-                </div>
+                            <div className="space-y-2">
+                                <label className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans block ml-1">Message</label>
+                                <div className="relative">
+                                    <MessageSquare className="absolute left-4 top-6 text-monochrome-300" size={16} />
+                                    <textarea
+                                        required
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        rows={4}
+                                        placeholder="Tell us about your event..."
+                                        className="w-full pl-12 pr-4 py-4 bg-monochrome-50 border border-monochrome-100 focus:border-accent outline-none transition-colors font-sans text-sm resize-none"
+                                    />
+                                </div>
+                            </div>
+
+                            <button
+                                disabled={isSubmitting}
+                                type="submit"
+                                className="w-full py-5 bg-black text-white text-[10px] uppercase tracking-[0.3em] font-black hover:bg-accent transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed group flex items-center justify-center gap-3"
+                            >
+                                {isSubmitting ? "Sending..." : "Send Inquiry"}
+                                {!isSubmitting && <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+                            </button>
+                        </form>
+                    )}
+
+                    {/* Decoration */}
+                    <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/5 -z-10 blur-2xl" />
+                    <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/5 -z-10 blur-3xl" />
+                </motion.div>
             </div>
+        </div>
+    );
+
+    if (isOpen !== undefined) {
+        return (
+            <AnimatePresence>
+                {isOpen && (
+                    <div className="fixed inset-0 z-[100] flex items-end justify-center">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={onClose}
+                            className="absolute inset-0 bg-black/40 backdrop-blur-md pointer-events-auto"
+                        />
+                        <motion.div
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "100%" }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="relative w-full max-h-[90vh] overflow-y-auto px-6"
+                        >
+                            {formContent}
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+        );
+    }
+
+    return (
+        <section id="contact" className="py-24 md:py-48 bg-monochrome-50 overflow-hidden">
+            {formContent}
         </section>
     );
 };

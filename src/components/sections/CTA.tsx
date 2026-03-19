@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const CTA = () => {
+const CTA = ({ onBookNow }: { onBookNow?: () => void }) => {
     return (
         <section id="contact" className="relative py-32 md:py-60 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
@@ -24,7 +24,7 @@ const CTA = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
-                    className="text-4xl md:text-6xl font-serif mb-12 text-black leading-[1.05] tracking-tight"
+                    className="text-3xl md:text-5xl font-serif mb-12 text-black leading-[1.05] tracking-tight"
                 >
                     Create Your Sri Lankan <br />
                     <span className="italic text-accent">Wedding Experience</span>
@@ -46,7 +46,10 @@ const CTA = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.4, duration: 1 }}
                 >
-                    <button className="px-20 py-8 bg-black text-white hover:bg-accent hover:text-black transition-all duration-700 rounded-custom text-xs uppercase tracking-[0.4em]  shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_45px_90px_-20px_rgba(226,239,112,0.4)] transform hover:scale-105 active:scale-95">
+                    <button 
+                        onClick={onBookNow}
+                        className="px-20 py-8 bg-black text-white hover:bg-accent hover:text-black transition-all duration-700 rounded-custom text-xs uppercase tracking-[0.4em]  shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_45px_90px_-20px_rgba(226,239,112,0.4)] transform hover:scale-105 active:scale-95"
+                    >
                         Book Your Experience Today
                     </button>
                 </motion.div>

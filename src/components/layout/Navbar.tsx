@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const Navbar = () => {
+const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -95,6 +95,7 @@ const Navbar = () => {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={onBookNow}
                         className={cn(
                             "hidden md:block px-10 py-4 text-[9px] uppercase tracking-[0.2em] rounded-custom transition-all duration-500 shadow-2xl",
                             isScrolled || isMenuOpen
@@ -157,10 +158,14 @@ const Navbar = () => {
                             </ul>
 
                             {/* Mobile Book Button */}
-                            <motion.button
+                             <motion.button
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.8 }}
+                                onClick={() => {
+                                    closeMenu();
+                                    onBookNow?.();
+                                }}
                                 className="md:hidden mt-20 px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] font-black rounded-custom"
                             >
                                 Book the Experience

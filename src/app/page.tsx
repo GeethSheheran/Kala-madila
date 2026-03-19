@@ -12,6 +12,7 @@ import WhyChoose from "@/components/sections/WhyChoose";
 import InquiryForm from "@/components/sections/InquiryForm";
 import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
+import { useState } from "react";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -21,12 +22,14 @@ export default function Home() {
   const footerOpacity = useTransform(scrollY, [600, 1000], [0, 1]);
   const footerZIndex = useTransform(scrollY, [600, 1000], [-10, 5]);
 
+  const [isInquiryModalOpen, setIsInquiryModalOpen] = useState(false);
+
   return (
     <main className="relative bg-monochrome-950">
-      <Navbar />
+      <Navbar onBookNow={() => setIsInquiryModalOpen(true)} />
 
       {/* Hero Section (Sticky Reveal) */}
-      <Hero />
+      <Hero onBookNow={() => setIsInquiryModalOpen(true)} />
 
       {/* Main Content (Scrolls over Hero) */}
       <div className="relative z-10 bg-white shadow-[0_-32px_64px_-16px_rgba(0,0,0,0.1)]">
@@ -36,11 +39,14 @@ export default function Home() {
         <WhyChoose />
         <InquiryForm />
         <FAQ />
-        <CTA />
+        <CTA onBookNow={() => setIsInquiryModalOpen(true)} />
       </div>
 
+      {/* Inquiry Modal */}
+      <InquiryForm isOpen={isInquiryModalOpen} onClose={() => setIsInquiryModalOpen(false)} />
+
       {/* Footer Reveal Spacer (Outside bg-white) */}
-      <div className="h-[600px] pointer-events-none" />
+      <div className="h-[1000px] md:h-[600px] pointer-events-none" />
 
       {/* Fixed Footer (Revealed from behind) */}
       <motion.div

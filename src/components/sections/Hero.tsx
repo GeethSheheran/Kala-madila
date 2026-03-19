@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
     return (
         <section id="home" className="sticky top-0 z-[1] w-full h-screen flex items-center md:items-end justify-center md:justify-start overflow-hidden">
             {/* Background with Parallax effect */}
@@ -21,7 +21,7 @@ const Hero = () => {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 text-center md:text-left px-6 md:px-24 py-20 md:py-32 max-w-5xl text-white">
+            <div className="relative z-10 text-center md:text-left px-6 md:px-24 py-20 md:py-32 max-w-5xl text-white flex flex-col items-center md:items-start">
                 {/* <motion.span
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -54,12 +54,15 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="flex flex-col md:flex-row items-left justify-left gap-8"
+                    className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-8"
                 >
-                    <button className="px-12 py-5 bg-white text-black font-sans uppercase text-[10px] tracking-[0.3em] rounded-custom hover:opacity-90 transition-all transform hover:scale-105 duration-500 shadow-2xl hover:shadow-primary/40">
+                    <button 
+                        onClick={onBookNow}
+                        className="w-full md:w-auto px-12 h-16 bg-white text-black font-sans uppercase text-[10px] tracking-[0.3em] rounded-custom hover:opacity-90 transition-all transform hover:scale-105 duration-500 shadow-2xl hover:shadow-primary/40 flex items-center justify-center whitespace-nowrap"
+                    >
                         Book the experience
                     </button>
-                    <button className="text-white border-b border-white/40 pb-0 font-sans uppercase text-[10px] tracking-[0.3em] hover:text-secondary hover:border-secondary transition-all duration-300 rounded-none">
+                    <button className="w-full md:w-auto px-12 h-16 text-white border border-white/40 font-sans uppercase text-[10px] tracking-[0.3em] hover:text-secondary hover:border-secondary transition-all duration-300 rounded-custom flex items-center justify-center whitespace-nowrap">
                         Discover the culture
                     </button>
                 </motion.div>
