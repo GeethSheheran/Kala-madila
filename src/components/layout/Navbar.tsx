@@ -67,24 +67,20 @@ const Navbar = () => {
                 isScrolled ? "py-4 bg-black/20 backdrop-blur-xl border-b border-white/5" : "py-8 bg-transparent"
             )}
         >
-            <div className="max-w-7xl mx-auto grid grid-cols-3 items-center">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Left Side: Logo */}
-                <div className="flex items-center justify-start">
+                <div className="flex items-center justify-start flex-1 md:flex-none">
                     <a href="#home" className="flex items-center gap-2 group">
                         <img
                             src="/logo.png"
                             alt="Kala Mandila Logo"
                             className="w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500"
                         />
-                        {/* <div className={cn("flex flex-col leading-none transition-colors duration-500", navTextColor)}>
-                            <span className="text-sm md:text-lg font-serif font-black tracking-tighter uppercase">KALA</span>
-                            <span className="text-[10px] md:text-xs font-serif italic font-medium tracking-widest text-accent uppercase">MANDILA</span>
-                        </div> */}
                     </a>
                 </div>
 
-                {/* Center: Hanger Menu Toggle */}
-                <div className="flex items-center justify-center">
+                {/* Center: Desktop Hanger Menu Toggle (Hidden on mobile) */}
+                <div className="hidden md:flex items-center justify-center flex-1">
                     <button
                         onClick={toggleMenu}
                         className="flex flex-col items-center group transition-all duration-500 hover:scale-110"
@@ -94,20 +90,31 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Right Side: Book Now Button */}
-                <div className="flex items-center justify-end">
+                {/* Right Side: Book Now Button (Desktop) & Hamburger (Mobile) */}
+                <div className="flex items-center justify-end flex-1 md:flex-none gap-6">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className={cn(
                             "hidden md:block px-10 py-4 text-[9px] uppercase tracking-[0.2em] rounded-custom transition-all duration-500 shadow-2xl",
-                            isMenuOpen
+                            isScrolled || isMenuOpen
                                 ? "bg-black text-white hover:bg-accent hover:text-black"
                                 : "bg-white text-black hover:bg-accent hover:text-black"
                         )}
                     >
                         Book Now
                     </motion.button>
+
+                    {/* Mobile Menu Toggle */}
+                    <div className="md:hidden flex items-center">
+                        <button
+                            onClick={toggleMenu}
+                            className="flex flex-col items-center group transition-all duration-500 hover:scale-110"
+                            aria-label="Toggle Menu"
+                        >
+                            <HangerIcon isOpen={isMenuOpen} colorClass={navIconColor} />
+                        </button>
+                    </div>
                 </div>
             </div>
 

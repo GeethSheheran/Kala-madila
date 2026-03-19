@@ -9,6 +9,8 @@ import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
 import WeddingStory from "@/components/sections/WeddingStory";
 import WhyChoose from "@/components/sections/WhyChoose";
+import InquiryForm from "@/components/sections/InquiryForm";
+import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 
 export default function Home() {
@@ -32,6 +34,8 @@ export default function Home() {
         <Experience />
         <WeddingStory />
         <WhyChoose />
+        <InquiryForm />
+        <FAQ />
         <CTA />
       </div>
 
