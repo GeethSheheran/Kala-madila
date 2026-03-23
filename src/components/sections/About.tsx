@@ -30,7 +30,7 @@ const About = () => {
                             <img
                                 src="/about-1.png"
                                 alt="Kala Mandila Tradition"
-                                className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)]"
+                                className="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)]"
                             />
                         </motion.div>
 
@@ -42,9 +42,9 @@ const About = () => {
                             className="absolute -bottom-16 -left-8 w-3/5 z-20 border-[12px] border-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)]"
                         >
                             <img
-                                src="/about-2.png"
+                                src="/about-2.JPG"
                                 alt="Traditional Photoshoot"
-                                className="w-full h-auto"
+                                className="w-full aspect-square object-cover"
                             />
                         </motion.div>
 
