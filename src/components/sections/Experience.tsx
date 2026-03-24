@@ -7,7 +7,7 @@ const experiences = [
     {
         title: "Authentic Attire",
         description: "Handcrafted Kandyan wedding garments representing centuries of royal history.",
-        image: "/exp-attire.png",
+        image: "/img01.png",
     },
     {
         title: "Traditional Styling",

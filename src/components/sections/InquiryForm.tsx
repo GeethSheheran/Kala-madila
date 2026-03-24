@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Send, User, Mail, Phone, Calendar, MessageSquare, X } from "lucide-react";
+import { Send, User, Mail, Phone, Calendar, MessageSquare, X, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "framer-motion";
 
@@ -23,6 +23,37 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+    const testimonials = [
+        {
+            quote: "Kala Mandila made our honeymoon in Kandy unforgettable. Wearing the traditional Nilame attire was a dream.",
+            author: "Sarah & David",
+            stars: 5
+        },
+        {
+            quote: "The attention to detail and respect for tradition is unmatched. A truly cinematic experience.",
+            author: "Elena R.",
+            stars: 5
+        },
+        {
+            quote: "A magical experience! The team at Kala Mandila are true artists who respect their heritage.",
+            author: "David W.",
+            stars: 5
+        },
+        {
+            quote: "Best cultural photography in Sri Lanka. Period.",
+            author: "Chris & Maya",
+            stars: 5
+        }
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -61,8 +92,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                         <div className="space-y-6 pt-8">
                             {[
                                 { icon: Mail, label: "Email", value: "hello@kalamandila.com" },
-                                { icon: Phone, label: "Phone", value: "+94 77 123 4567" },
-                                { icon: Calendar, label: "Availability", value: "Booking for 2026 & 2027" }
+                                { icon: Phone, label: "Phone", value: "+94 77 123 4567" }
                             ].map((item, idx) => (
                                 <motion.div
                                     key={item.label}
@@ -81,6 +111,38 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                                     </div>
                                 </motion.div>
                             ))}
+                        </div>
+
+                        {/* Testimonials Slider */}
+                        <div className="pt-12 border-t border-monochrome-100/50">
+                            <div className="relative h-[200px]">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={activeTestimonial}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="absolute inset-0"
+                                    >
+                                        <div className="bg-white/50 p-6 rounded-2xl border border-monochrome-100 hover:shadow-md transition-all duration-300 group">
+                                            <div className="flex gap-1 mb-3">
+                                                {[...Array(testimonials[activeTestimonial].stars)].map((_, i) => (
+                                                    <Star key={i} size={12} className="fill-accent text-accent" />
+                                                ))}
+                                            </div>
+                                            <p className="text-sm font-serif italic text-black leading-relaxed mb-4">
+                                                "{testimonials[activeTestimonial].quote}"
+                                            </p>
+                                            <p className="text-[10px] uppercase tracking-widest text-monochrome-400 font-sans">
+                                                — {testimonials[activeTestimonial].author}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
+                            
+                           
                         </div>
                     </div>
                 )}
