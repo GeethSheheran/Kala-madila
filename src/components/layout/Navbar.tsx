@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -18,11 +19,12 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
     }, []);
 
     const navLinks = [
-        { name: "Home", href: "#home" },
-        { name: "About", href: "#about" },
-        { name: "Experience", href: "#experience" },
-        { name: "Story", href: "#story" },
-        { name: "Contact", href: "#contact" },
+        { name: "Home", href: "/#home" },
+        { name: "About", href: "/#about" },
+        { name: "Experience", href: "/#experience" },
+        { name: "Story", href: "/#story" },
+        { name: "Gallery", href: "/gallery" },
+        { name: "Contact", href: "/#contact" },
     ];
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -145,14 +147,14 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                                         <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-black/20 font-sans group-hover:text-black/60 transition-colors duration-500 mt-2 md:mt-4">
                                             0{idx + 1}
                                         </span>
-                                        <a
+                                        <Link
                                             href={link.href}
                                             onClick={closeMenu}
                                             className="relative block text-4xl md:text-7xl font-serif text-black hover:text-secondary transition-all duration-500 tracking-tight"
                                         >
                                             {link.name}
                                             <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-secondary transition-all duration-500 group-hover:w-full" />
-                                        </a>
+                                        </Link>
                                     </motion.li>
                                 ))}
                             </ul>

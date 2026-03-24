@@ -23,7 +23,7 @@ const WhyChoose = () => {
     return (
         <section id="why-choose" className="py-24 md:py-32 bg-monochrome-50/50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
                     {/* Left & Middle Column: Why Choose Features */}
                     <div className="lg:col-span-2">
                         <motion.div
@@ -36,8 +36,8 @@ const WhyChoose = () => {
                                 Experience Sri Lankan Traditions
                             </span>
                             <h2 className="text-4xl md:text-6xl font-serif text-black leading-tight tracking-tight">
-                                Why Choose <br />
-                                <span className="italic text-accent">Kala Mandila?</span>
+                                Why Choose 
+                                <span className="italic text-accent"> Kala Mandila?</span>
                             </h2>
                         </motion.div>
 
@@ -49,7 +49,7 @@ const WhyChoose = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                    className="bg-white p-8 rounded-2xl shadow-sm border border-monochrome-100 hover:shadow-md transition-all duration-300 group"
+                                    className="h-full bg-white p-8 rounded-2xl shadow-sm border border-monochrome-100 hover:shadow-md transition-all duration-300 group"
                                 >
                                     <div className="flex-shrink-0 w-14 h-14 bg-accent/10 flex items-center justify-center rounded-xl text-accent mb-6 transition-colors duration-500 group-hover:bg-accent group-hover:text-white">
                                         <item.icon size={26} className="transition-transform duration-500 group-hover:scale-110" />
@@ -92,6 +92,13 @@ const WhyChoose = () => {
                         {/* Decorative Background Glows */}
                         <div className="absolute top-0 right-0 w-48 h-48 bg-accent/10 rounded-full blur-[80px] -mr-24 -mt-24 pointer-events-none" />
                         <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/5 rounded-full blur-[60px] -ml-16 -mb-16 pointer-events-none" />
+                        
+                        {/* Ornament Overlay */}
+                        <img 
+                            src="/sri-lankan-ornament-overlay.png" 
+                            alt="" 
+                            className="absolute -bottom-32 -right-12 w-150 h-150 object-contain opacity-15 pointer-events-none select-none grayscale -scale-x-100"
+                        />
                     </div>
                 </div>
             </div>

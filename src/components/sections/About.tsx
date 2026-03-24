@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
     return (
-        <section id="about" className="py-24 md:py-48 bg-white overflow-hidden relative">
+        <section id="about" className="py-12 md:py-24 bg-white overflow-hidden relative">
             {/* Background Image Element */}
             <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none overflow-hidden select-none z-0">
                 <img
