@@ -63,9 +63,9 @@ const WeddingStory = () => {
                             className="relative z-10 overflow-hidden"
                         >
                             <img
-                                src="/about-1.png"
+                                src="/about-3.jpg"
                                 alt="Kandyan Jewelry"
-                                className="w-full scale-x-[-1] h-auto rounded-sm grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 shadow-[0_40px_80px_-20px_rgba(226,239,112,0.1)]"
+                                className="w-full aspect-square object-cover scale-x-[-1] rounded-sm grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 shadow-[0_40px_80px_-20px_rgba(226,239,112,0.1)]"
                             />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-1000" />
                         </motion.div>

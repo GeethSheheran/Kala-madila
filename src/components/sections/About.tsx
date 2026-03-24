@@ -28,7 +28,7 @@ const About = () => {
                             className="relative z-10 w-4/5 ml-auto"
                         >
                             <img
-                                src="/about-1.png"
+                                src="/about-1.webp"
                                 alt="Kala Mandila Tradition"
                                 className="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)]"
                             />

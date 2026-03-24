@@ -21,23 +21,27 @@ const perfectFor = [
 
 const WhyChoose = () => {
     return (
-        <section id="why-choose" className="py-24 md:py-28 bg-white overflow-hidden">
+        <section id="why-choose" className="py-24 md:py-32 bg-monochrome-50/50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-stretch">
-                    <div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24 items-start">
+                    {/* Left & Middle Column: Why Choose Features */}
+                    <div className="lg:col-span-2">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="flex flex-col lg:flex-row items-center lg:items-center gap-4 mb-8"
+                            className="space-y-4 mb-16 text-center lg:text-left"
                         >
-                              {/* <div className="w-12 h-[1px] bg-accent" /> */}
-                            <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight text-center lg:text-left w-full">
-                                Why <span className="italic text-accent">Kala Mandila</span>
+                            <span className="text-accent text-[10px] uppercase tracking-[0.4em] underline underline-offset-8 decoration-accent/30 block mb-6">
+                                Experience Sri Lankan Traditions
+                            </span>
+                            <h2 className="text-4xl md:text-6xl font-serif text-black leading-tight tracking-tight">
+                                Why Choose <br />
+                                <span className="italic text-accent">Kala Mandila?</span>
                             </h2>
                         </motion.div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-16">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                             {whyChooseNodes.map((item, idx) => (
                                 <motion.div
                                     key={item.title}
@@ -45,47 +49,49 @@ const WhyChoose = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                    className="flex gap-6 items-start group"
+                                    className="bg-white p-8 rounded-2xl shadow-sm border border-monochrome-100 hover:shadow-md transition-all duration-300 group"
                                 >
-                                    <div className="flex-shrink-0 w-14 h-14 bg-accent/10 flex items-center justify-center rounded-custom text-accent border border-monochrome-100 transition-all duration-500 group-hover:bg-accent group-hover:text-white">
-                                        <item.icon size={26} className="transition-transform duration-500" />
+                                    <div className="flex-shrink-0 w-14 h-14 bg-accent/10 flex items-center justify-center rounded-xl text-accent mb-6 transition-colors duration-500 group-hover:bg-accent group-hover:text-white">
+                                        <item.icon size={26} className="transition-transform duration-500 group-hover:scale-110" />
                                     </div>
                                     <div className="space-y-3">
                                         <h3 className="text-2xl font-serif tracking-tight">{item.title}</h3>
-                                        <p className="text-base text-monochrome-600 leading-relaxed font-sans font-extralight">{item.desc}</p>
+                                        <p className="text-base text-monochrome-500 leading-relaxed font-sans font-extralight">{item.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
                     </div>
 
-                    <div className="bg-monochrome-950 p-16 md:p-24 text-white relative rounded-sm overflow-hidden flex flex-col justify-center">
+                    {/* Right Column: Perfect For Sidebar */}
+                    <div className="lg:col-span-1 bg-monochrome-950 p-10 md:p-14 text-white rounded-2xl relative overflow-hidden shadow-2xl">
                         <motion.h3
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="text-3xl md:text-5xl font-serif mb-12 text-primary tracking-tight text-center md:text-left"
+                            className="text-3xl md:text-4xl font-serif mb-10 text-primary tracking-tight"
                         >
                             Perfect For
                         </motion.h3>
-                        <ul className="space-y-8 relative z-10">
+                        <ul className="space-y-6 relative z-10">
                             {perfectFor.map((text, idx) => (
                                 <motion.li
                                     key={text}
-                                    initial={{ opacity: 0, x: 30 }}
+                                    initial={{ opacity: 0, x: 20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1, duration: 0.8 }}
-                                    className="flex items-center gap-6 text-xl font-sans font-extralight group cursor-default"
+                                    transition={{ delay: idx * 0.1, duration: 0.5 }}
+                                    className="flex items-center gap-4 text-base md:text-lg font-sans font-extralight group cursor-default"
                                 >
-                                    <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform duration-500" />
-                                    <span className="group-hover:translate-x-2 transition-transform duration-500">{text}</span>
+                                    <div className="w-1.5 h-1.5 bg-primary/60 rounded-full group-hover:bg-primary group-hover:scale-150 transition-all duration-300" />
+                                    <span className="text-monochrome-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{text}</span>
                                 </motion.li>
                             ))}
                         </ul>
-                        {/* Abstract background glow */}
-                        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px] -mr-48 -mt-48 transition-opacity duration-1000" />
-                        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[100px] -ml-32 -mb-32 opacity-30" />
+                        
+                        {/* Decorative Background Glows */}
+                        <div className="absolute top-0 right-0 w-48 h-48 bg-accent/10 rounded-full blur-[80px] -mr-24 -mt-24 pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/5 rounded-full blur-[60px] -ml-16 -mb-16 pointer-events-none" />
                     </div>
                 </div>
             </div>
