@@ -23,7 +23,6 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
         { name: "About", href: "/#about" },
         { name: "Experience", href: "/#experience" },
         { name: "Story", href: "/#story" },
-        { name: "Gallery", href: "/gallery" },
         { name: "Contact", href: "/#contact" },
     ];
 
