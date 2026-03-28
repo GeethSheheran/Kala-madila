@@ -28,7 +28,7 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <section id="experience" className="py-24 md:py-48 bg-monochrome-50">
+        <section id="experience" className="section-spacing bg-monochrome-50">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-24">
                     <motion.div
@@ -49,7 +49,7 @@ const Experience = () => {
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className="text-3xl md:text-5xl font-serif text-black leading-tight tracking-tight"
                     >
-                        Your Kala Mandila <span className="italic text-accent">Experience</span>
+                        Your Kala Mandila <span className="text-accent">Experience</span>
                     </motion.h2>
                 </div>
 

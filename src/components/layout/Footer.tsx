@@ -33,7 +33,7 @@ const Footer = () => {
                         </a>
                         <div className="space-y-4 max-w-sm">
                             <h2 className="text-3xl font-serif tracking-tighter">
-                                KALA <span className="text-accent italic">MANDILA</span>
+                                KALA <span className="text-accent">MANDILA</span>
                             </h2>
                             <p className="text-base text-monochrome-400 font-sans leading-relaxed font-extralight">
                                 Preserving and celebrating the timeless beauty of Sri Lankan wedding traditions for the discerning modern traveler.

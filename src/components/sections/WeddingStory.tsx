@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const WeddingStory = () => {
     return (
-        <section id="story" className="py-24 md:py-48 bg-black text-white overflow-hidden">
+        <section id="story" className="section-spacing bg-black text-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col lg:flex-row gap-24 items-center">
                     <div className="lg:w-1/2 space-y-10">
@@ -28,7 +28,7 @@ const WeddingStory = () => {
                             className="text-3xl md:text-5xl font-serif leading-[1.05] tracking-tight"
                         >
                             Timeless Elegance <br />
-                            <span className="italic text-accent">Royal Heritage.</span>
+                            <span className="text-accent">Royal Heritage.</span>
                         </motion.h2>
 
                         <div className="space-y-8 max-w-xl">

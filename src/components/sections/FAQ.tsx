@@ -71,7 +71,7 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="py-24 md:py-24 bg-white overflow-hidden">
+        <section id="faq" className="section-spacing bg-white overflow-hidden">
             <div className="max-w-4xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -80,7 +80,7 @@ const FAQ = () => {
                     className="text-center mb-20 space-y-4"
                 >
                     <h2 className="text-3xl md:text-5xl font-serif tracking-tight">
-                        Common <span className="italic text-accent">Questions</span>
+                        Common <span className="text-accent">Questions</span>
                     </h2>
                     <p className="text-monochrome-600 font-sans font-extralight uppercase tracking-widest text-[10px]">
                         Everything you need to know before booking

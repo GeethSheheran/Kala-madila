@@ -21,7 +21,7 @@ const perfectFor = [
 
 const WhyChoose = () => {
     return (
-        <section id="why-choose" className="py-24 md:py-32 bg-monochrome-50/50 overflow-hidden">
+        <section id="why-choose" className="section-spacing bg-monochrome-50/50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
                     {/* Left & Middle Column: Why Choose Features */}
@@ -37,7 +37,7 @@ const WhyChoose = () => {
                             </span>
                             <h2 className="text-4xl md:text-6xl font-serif text-black leading-tight tracking-tight">
                                 Why Choose 
-                                <span className="italic text-accent"> Kala Mandila?</span>
+                                <span className="text-accent"> Kala Mandila?</span>
                             </h2>
                         </motion.div>
 

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const CTA = ({ onBookNow }: { onBookNow?: () => void }) => {
     return (
-        <section id="contact" className="relative py-12 md:py-24 bg-white overflow-hidden">
+        <section id="contact" className="section-spacing relative bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -27,7 +27,7 @@ const CTA = ({ onBookNow }: { onBookNow?: () => void }) => {
                     className="text-3xl md:text-5xl font-serif mb-12 text-black leading-[1.05] tracking-tight"
                 >
                     Create Your Sri Lankan <br />
-                    <span className="italic text-accent">Wedding Experience</span>
+                    <span className="text-accent">Wedding Experience</span>
                 </motion.h2>
 
                 <motion.p

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
     return (
-        <section id="about" className="py-12 md:py-24 bg-white overflow-hidden relative">
+        <section id="about" className="section-spacing bg-white overflow-hidden relative">
             {/* Background Image Element */}
             <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none overflow-hidden select-none z-0">
                 <img
@@ -74,7 +74,7 @@ const About = () => {
                             className="text-3xl md:text-5xl font-serif leading-[1.1] text-black tracking-tight text-center lg:text-left"
                         >
                             Experience Sri Lanka <br />
-                            in a <span className="italic text-primary">Meaningful Way</span>
+                            in a <span className="text-primary">Meaningful Way</span>
                         </motion.h2>
 
                         <div className="space-y-6 text-center lg:text-left">

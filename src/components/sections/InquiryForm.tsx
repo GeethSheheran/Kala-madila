@@ -82,7 +82,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                             className="space-y-4"
                         >
                             <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight leading-tight">
-                                Start Your <span className="italic text-accent">Journey</span> With Us
+                                Start Your <span className="text-accent">Journey</span> With Us
                             </h2>
                             <p className="text-lg text-monochrome-600 font-sans font-extralight max-w-md leading-relaxed">
                                 Ready to capture your Sri Lankan story? Fill out the form below and we'll get back to you within 24 hours.
@@ -170,7 +170,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                     {isOpen && (
                         <div className="mb-12 text-center space-y-4">
                             <h2 className="text-3xl md:text-5xl font-serif text-black tracking-tight leading-tight">
-                                Start Your <span className="italic text-accent">Journey</span>
+                                Start Your <span className="text-accent">Journey</span>
                             </h2>
                             <p className="text-sm text-monochrome-600 font-sans font-extralight">
                                 Capture your Sri Lankan story with Kala Mandila.
@@ -322,7 +322,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
     }
 
     return (
-        <section id="contact" className="py-24 md:py-48 bg-monochrome-50 overflow-hidden">
+        <section id="contact" className="section-spacing bg-monochrome-50 overflow-hidden">
             {formContent}
         </section>
     );

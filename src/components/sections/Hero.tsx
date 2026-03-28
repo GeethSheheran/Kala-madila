@@ -38,7 +38,7 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                     className="text-3xl md:text-6xl font-serif mb-2 leading-tight tracking-tight"
                 >
                     Step Into a Traditional <br />
-                    <span className="italic">Sri Lankan Wedding</span>
+                    <span>Sri Lankan Wedding</span>
                 </motion.h1>
 
                 <motion.p

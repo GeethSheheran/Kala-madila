@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", "sans-serif";
+  --font-sans: "Urbanist", "sans-serif";
   --font-serif: "Playfair Display", "serif";
 
   /* Theme Update: Gold as Primary */
@@ -27,6 +27,8 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  --section-space-y: 3.5rem;
+  --section-space-y-desktop: 5rem;
 }
 
 [data-theme='dark'] {
@@ -53,6 +55,11 @@ h6 {
 }
 
 @layer utilities {
+  .section-spacing {
+    padding-top: var(--section-space-y);
+    padding-bottom: var(--section-space-y);
+  }
+
   .text-balance {
     text-wrap: balance;
   }
@@ -69,5 +76,12 @@ h6 {
 
   .gold-gradient-background {
     background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+  }
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: var(--section-space-y-desktop);
+    padding-bottom: var(--section-space-y-desktop);
   }
 }
