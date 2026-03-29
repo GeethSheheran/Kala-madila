@@ -2,13 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, Star, Camera, Heart } from "lucide-react";
 
+// nodes as the original
 const whyChooseNodes = [
-    { icon: Heart, title: "Authentic Experience", desc: "Inspired by genuine Sri Lankan traditions." },
-    { icon: Star, title: "Perfect for Couples", desc: "Ideal for honeymoons and anniversaries." },
-    { icon: Camera, title: "Professional Photos", desc: "Cinematic memories captured by experts." },
-    { icon: Check, title: "Unique Travel Memory", desc: "Become part of Sri Lanka's story." },
+    { icon: '/gifs/authentic.gif', title: "Authentic Experience", desc: "Inspired by genuine Sri Lankan traditions." },
+    { icon: '/gifs/love.gif', title: "Perfect for Couples", desc: "Ideal for honeymoons and anniversaries." },
+    { icon: '/gifs/photo.gif', title: "Professional Photos", desc: "Cinematic memories captured by experts." },
+    { icon: '/gifs/travel.gif', title: "Unique Travel Memory", desc: "Become part of Sri Lanka's story." },
 ];
 
 const perfectFor = [
@@ -20,28 +20,51 @@ const perfectFor = [
 ];
 
 const WhyChoose = () => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    React.useEffect(() => {
+        if (isHovered) return;
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % perfectFor.length);
+        }, 2200); // Shift every ~2.2 seconds
+        
+        return () => clearInterval(interval);
+    }, [isHovered]);
+
     return (
-        <section id="why-choose" className="section-spacing bg-monochrome-50/50 overflow-hidden">
+        <section id="why-choose" className="section-spacing bg-[#fcfcfc] overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
-                    {/* Left & Middle Column: Why Choose Features */}
+                    {/* Left & Middle Column: Features */}
                     <div className="lg:col-span-2">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-4 mb-16 text-center lg:text-left"
-                        >
-                            <span className="text-accent text-[10px] uppercase tracking-[0.4em] underline underline-offset-8 decoration-accent/30 block mb-6">
-                                Experience Sri Lankan Traditions
-                            </span>
-                            <h2 className="text-4xl md:text-6xl font-serif text-black leading-tight tracking-tight">
-                                Why Choose 
-                                <span className="text-accent"> Kala Mandila?</span>
-                            </h2>
-                        </motion.div>
+                        {/* Title Section */}
+                        <div className="flex flex-col space-y-4 mb-24">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="flex items-center justify-center lg:justify-start gap-4"
+                            >
+                                <div className="w-12 h-[1px] bg-accent" />
+                                <span className="text-black text-[10px] uppercase tracking-[0.4em] text-center lg:text-left">
+                                    Experience Sri Lankan Traditions
+                                </span>
+                            </motion.div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <motion.h2
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2, duration: 0.8 }}
+                                className="text-3xl md:text-5xl font-serif leading-[1.1] text-black tracking-tight text-center lg:text-left"
+                            >
+                                Why Choose <span className="text-accent">Kala Mandila?</span>
+                            </motion.h2>
+                        </div>
+
+                        {/* Elegant 2x2 Feature Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
                             {whyChooseNodes.map((item, idx) => (
                                 <motion.div
                                     key={item.title}
@@ -49,56 +72,72 @@ const WhyChoose = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                    className="h-full bg-white p-8 rounded-2xl shadow-sm border border-monochrome-100 hover:shadow-md transition-all duration-300 group"
+                                    className="group flex flex-col gap-5"
                                 >
-                                    <div className="flex-shrink-0 w-14 h-14 bg-accent/10 flex items-center justify-center rounded-xl text-accent mb-6 transition-colors duration-500 group-hover:bg-accent group-hover:text-white">
-                                        <item.icon size={26} className="transition-transform duration-500 group-hover:scale-110" />
+                                    <div className="flex items-center gap-5 border-b border-monochrome-200/60 pb-5 group-hover:border-accent transition-colors duration-500">
+                                        <div className="flex-shrink-0 text-monochrome-300 group-hover:scale-110 transition-transform duration-500">
+                                            <img src={item.icon} alt={item.title} className="w-[48px] h-[48px] object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-500" />
+                                        </div>
+                                        <h3 className="text-2xl font-serif text-monochrome-800 group-hover:text-accent transition-colors duration-500 tracking-tight">
+                                            {item.title}
+                                        </h3>
                                     </div>
-                                    <div className="space-y-3">
-                                        <h3 className="text-2xl font-serif tracking-tight">{item.title}</h3>
-                                        <p className="text-base text-monochrome-500 leading-relaxed font-sans font-extralight">{item.desc}</p>
-                                    </div>
+                                    <p className="text-base text-monochrome-600 font-sans leading-relaxed transition-colors duration-500">
+                                        {item.desc}
+                                    </p>
                                 </motion.div>
                             ))}
                         </div>
                     </div>
 
                     {/* Right Column: Perfect For Sidebar */}
-                    <div className="lg:col-span-1 bg-monochrome-950 p-10 md:p-14 text-white rounded-2xl relative overflow-hidden shadow-2xl">
-                        <motion.h3
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                    <div className="lg:col-span-1 h-full">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-3xl md:text-4xl font-serif mb-10 text-primary tracking-tight"
+                            transition={{ duration: 0.8 }}
+                            className="bg-white p-10 md:p-14 border border-monochrome-200/60 shadow-sm relative overflow-hidden h-full flex flex-col justify-center"
                         >
-                            Perfect For
-                        </motion.h3>
-                        <ul className="space-y-6 relative z-10">
-                            {perfectFor.map((text, idx) => (
-                                <motion.li
-                                    key={text}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                    className="flex items-center gap-4 text-base md:text-lg font-sans font-extralight group cursor-default"
-                                >
-                                    <div className="w-1.5 h-1.5 bg-primary/60 rounded-full group-hover:bg-primary group-hover:scale-150 transition-all duration-300" />
-                                    <span className="text-monochrome-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">{text}</span>
-                                </motion.li>
-                            ))}
-                        </ul>
-                        
-                        {/* Decorative Background Glows */}
-                        <div className="absolute top-0 right-0 w-48 h-48 bg-accent/10 rounded-full blur-[80px] -mr-24 -mt-24 pointer-events-none" />
-                        <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/5 rounded-full blur-[60px] -ml-16 -mb-16 pointer-events-none" />
-                        
-                        {/* Ornament Overlay */}
-                        <img 
-                            src="/sri-lankan-ornament-overlay.png" 
-                            alt="" 
-                            className="absolute -bottom-32 -right-12 w-150 h-150 object-contain opacity-15 pointer-events-none select-none grayscale -scale-x-100"
-                        />
+                            <h3 className="text-3xl md:text-4xl font-serif mb-12 text-black tracking-tight flex items-center gap-4">
+                                Perfect For
+                                <div className="h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent" />
+                            </h3>
+                            <ul 
+                                className="space-y-6 relative z-10"
+                                onMouseEnter={() => setIsHovered(true)}
+                                onMouseLeave={() => setIsHovered(false)}
+                            >
+                                {perfectFor.map((text, idx) => {
+                                    const isActive = activeIndex === idx;
+                                    return (
+                                        <motion.li
+                                            key={text}
+                                            initial={{ opacity: 0, x: 20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: 0.2 + (idx * 0.1), duration: 0.5 }}
+                                            className="flex items-center gap-5 text-base md:text-lg font-sans text-monochrome-600 cursor-default"
+                                            onMouseEnter={() => setActiveIndex(idx)}
+                                        >
+                                            <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-500 ${isActive ? 'border-accent/40 bg-accent/5' : 'border-monochrome-200 bg-monochrome-50'}`}>
+                                                <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 delay-75 ${isActive ? 'bg-accent shadow-[0_0_8px_rgba(186,159,71,0.6)] scale-110' : 'bg-monochrome-300'}`} />
+                                            </div>
+                                            <span className={`transition-all duration-300 ${isActive ? 'text-black font-normal translate-x-1' : 'font-extralight translate-x-0'}`}>
+                                                {text}
+                                            </span>
+                                        </motion.li>
+                                    );
+                                })}
+                            </ul>
+                            
+                            {/* Ornament Overlay */}
+                            <img 
+                                src="/sri-lankan-ornament-overlay.png" 
+                                alt="" 
+                                className="absolute -bottom-12 -right-12 w-96 h-96 object-contain opacity-[0.15] pointer-events-none select-none grayscale -scale-x-100 mix-blend-multiply"
+                            />
+                        </motion.div>
                     </div>
                 </div>
             </div>

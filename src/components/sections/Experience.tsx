@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 
 const experiences = [
     {
-        title: "Authentic Attire",
-        description: "Handcrafted Kandyan wedding garments representing centuries of royal history.",
-        image: "/img01.png",
+        title: "Traditional Setups",
+        description: "Elegant poruwa arrangements designed to frame your special moments.",
+        image: "/poruwa.png",
     },
     {
-        title: "Traditional Styling",
-        description: "Professional assistance to ensure every detail of your transformation is perfect.",
-        image: "/exp-makeup.png",
+        title: "Authentic Attire",
+        description: "Handcrafted Kandyan wedding garments representing centuries of royal history.",
+        image: "/attire.png",
     },
     {
         title: "Iconic Locations",
         description: "Access to some of Sri Lanka's most beautiful and sacred cultural backdrops.",
-        image: "/exp-location.png",
+        image: "/anuradhapura1.png",
     },
     {
         title: "Professional Shoot",
         description: "Experienced photographers capturing your journey in high-end cinematic style.",
-        image: "/exp-shoot.png",
+        image: "/263A1138.JPG",
     },
 ];
 
@@ -67,7 +67,7 @@ const Experience = () => {
                                 <img
                                     src={exp.image}
                                     alt={exp.title}
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-700" />
                                 <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 transition-all duration-700 m-4" />
