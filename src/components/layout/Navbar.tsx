@@ -70,8 +70,8 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Left Side: Logo */}
-                <div className="flex items-center justify-start flex-1 md:flex-none">
-                    <a href="#home" className="flex items-center gap-2 group">
+                <div className="flex items-center justify-start flex-1">
+                    <a href="#home" className={cn("flex items-center gap-2 group transition-opacity duration-300", isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100")}>
                         <img
                             src="/logo.png"
                             alt="Kala Mandila Logo"
@@ -92,16 +92,17 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                 </div>
 
                 {/* Right Side: Book Now Button (Desktop) & Hamburger (Mobile) */}
-                <div className="flex items-center justify-end flex-1 md:flex-none gap-6">
+                <div className="flex items-center justify-end flex-1 gap-6">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={onBookNow}
                         className={cn(
                             "hidden md:block px-10 py-4 text-[9px] uppercase tracking-[0.2em] rounded-custom transition-all duration-500 shadow-2xl",
-                            isScrolled || isMenuOpen
+                            isScrolled
                                 ? "bg-black text-white hover:bg-accent hover:text-black"
-                                : "bg-white text-black hover:bg-accent hover:text-black"
+                                : "bg-white text-black hover:bg-accent hover:text-black",
+                            isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
                         )}
                     >
                         Book Now
@@ -141,16 +142,16 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                                         initial={{ opacity: 0, y: 30 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.3 + idx * 0.1, duration: 0.6 }}
-                                        className="flex items-center justify-center gap-4 group"
+                                        className="block group"
                                     >
-                                        <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-black/20 font-sans group-hover:text-black/60 transition-colors duration-500 mt-2 md:mt-4">
-                                            0{idx + 1}
-                                        </span>
                                         <Link
                                             href={link.href}
                                             onClick={closeMenu}
-                                            className="relative block text-4xl md:text-7xl font-serif text-black hover:text-secondary transition-all duration-500 tracking-tight"
+                                            className="relative inline-flex items-center text-4xl md:text-7xl font-serif text-black hover:text-secondary transition-all duration-500 tracking-tight"
                                         >
+                                            <span className="absolute -left-12 md:-left-20 text-[10px] md:text-xs uppercase tracking-[0.4em] text-black/20 font-sans group-hover:text-black/60 transition-colors duration-500">
+                                                0{idx + 1}
+                                            </span>
                                             {link.name}
                                             <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-secondary transition-all duration-500 group-hover:w-full" />
                                         </Link>
@@ -158,19 +159,7 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                                 ))}
                             </ul>
 
-                            {/* Mobile Book Button */}
-                             <motion.button
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.8 }}
-                                onClick={() => {
-                                    closeMenu();
-                                    onBookNow?.();
-                                }}
-                                className="md:hidden mt-20 px-12 py-5 bg-black text-white text-xs uppercase tracking-[0.3em] font-black rounded-custom"
-                            >
-                                Book the Experience
-                            </motion.button>
+
                         </div>
 
                         {/* Footer Info in Menu */}

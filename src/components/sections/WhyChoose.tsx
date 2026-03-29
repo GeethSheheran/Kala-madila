@@ -28,7 +28,7 @@ const WhyChoose = () => {
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % perfectFor.length);
         }, 2200); // Shift every ~2.2 seconds
-        
+
         return () => clearInterval(interval);
     }, [isHovered]);
 
@@ -97,9 +97,20 @@ const WhyChoose = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="bg-white p-10 md:p-14 border border-monochrome-200/60 shadow-sm relative overflow-hidden h-full flex flex-col justify-center"
+                            className="bg-white p-10 md:p-14 border border-monochrome-200/60 shadow-sm relative overflow-hidden h-full flex flex-col justify-center rounded-sm group"
                         >
-                            <h3 className="text-3xl md:text-4xl font-serif mb-12 text-black tracking-tight flex items-center gap-4">
+                            {/* Full Background Photograph with White Overlay */}
+                            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+                                <img 
+                                    src="/attire1.png" 
+                                    alt="Attire" 
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                />
+                                {/* Premium White Overlay */}
+                                <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px] transition-colors duration-700 group-hover:bg-white/75" />
+                            </div>
+                            
+                            <h3 className="text-3xl md:text-4xl font-serif mb-12 text-black tracking-tight flex items-center gap-4 relative z-10">
                                 Perfect For
                                 <div className="h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent" />
                             </h3>
@@ -117,11 +128,11 @@ const WhyChoose = () => {
                                             whileInView={{ opacity: 1, x: 0 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: 0.2 + (idx * 0.1), duration: 0.5 }}
-                                            className="flex items-center gap-5 text-base md:text-lg font-sans text-monochrome-600 cursor-default"
+                                            className="flex items-center gap-5 text-base md:text-lg font-sans text-monochrome-700 cursor-default"
                                             onMouseEnter={() => setActiveIndex(idx)}
                                         >
-                                            <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-500 ${isActive ? 'border-accent/40 bg-accent/5' : 'border-monochrome-200 bg-monochrome-50'}`}>
-                                                <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 delay-75 ${isActive ? 'bg-accent shadow-[0_0_8px_rgba(186,159,71,0.6)] scale-110' : 'bg-monochrome-300'}`} />
+                                            <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-500 ${isActive ? 'border-accent bg-accent/10' : 'border-monochrome-200 bg-monochrome-50/50'}`}>
+                                                <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 delay-75 ${isActive ? 'bg-accent shadow-[0_0_8px_rgba(186,159,71,0.5)] scale-110' : 'bg-monochrome-300'}`} />
                                             </div>
                                             <span className={`transition-all duration-300 ${isActive ? 'text-black font-normal translate-x-1' : 'font-extralight translate-x-0'}`}>
                                                 {text}
@@ -130,13 +141,6 @@ const WhyChoose = () => {
                                     );
                                 })}
                             </ul>
-                            
-                            {/* Ornament Overlay */}
-                            <img 
-                                src="/sri-lankan-ornament-overlay.png" 
-                                alt="" 
-                                className="absolute -bottom-12 -right-12 w-96 h-96 object-contain opacity-[0.15] pointer-events-none select-none grayscale -scale-x-100 mix-blend-multiply"
-                            />
                         </motion.div>
                     </div>
                 </div>
