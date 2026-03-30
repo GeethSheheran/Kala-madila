@@ -28,7 +28,7 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <section id="experience" className="section-spacing bg-monochrome-50">
+        <section id="experience" className="section-spacing py-24 bg-monochrome-50">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-24">
                     <motion.div

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const CTA = ({ onBookNow }: { onBookNow?: () => void }) => {
     return (
-        <section id="contact" className="section-spacing relative bg-white overflow-hidden">
+        <section id="contact" className="section-spacing py-24 relative bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

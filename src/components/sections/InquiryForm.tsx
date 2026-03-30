@@ -70,7 +70,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
     };
 
     const formContent = (
-        <div className={cn("max-w-7xl mx-auto", !isOpen && "px-6", isOpen && "max-w-4xl pt-12 pb-20")}>
+        <div className={cn("max-w-7xl py-24 mx-auto", !isOpen && "px-6", isOpen && "max-w-4xl pt-12 pb-20")}>
             <div className={cn("grid grid-cols-1 gap-20 items-start", !isOpen && "lg:grid-cols-2")}>
                 {/* Left Side: Content (Hidden in Modal) */}
                 {!isOpen && (

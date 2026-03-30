@@ -33,7 +33,7 @@ const WhyChoose = () => {
     }, [isHovered]);
 
     return (
-        <section id="why-choose" className="section-spacing bg-[#fcfcfc] overflow-hidden">
+        <section id="why-choose" className="section-spacing py-24 bg-[#fcfcfc] overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
                     {/* Left & Middle Column: Features */}

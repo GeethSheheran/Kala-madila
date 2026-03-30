@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const WeddingStory = () => {
     return (
-        <section id="story" className="section-spacing bg-black text-white overflow-hidden">
+        <section id="story" className="section-spacing bg-black py-24 text-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col lg:flex-row gap-24 items-center">
                     <div className="lg:w-1/2 space-y-10">
