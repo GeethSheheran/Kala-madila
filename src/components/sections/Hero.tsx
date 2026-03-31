@@ -11,7 +11,7 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <iframe
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400%] h-[400%] md:w-[250%] md:h-[250%] lg:w-[150%] lg:h-[150%] object-cover min-w-full min-h-full"
-                    src="https://www.youtube.com/embed/8Ywk_Cal0Qo?autoplay=1&mute=1&loop=1&playlist=8Ywk_Cal0Qo&controls=0&showinfo=0&modestbranding=1&rel=0&start=3&enablejsapi=1"
+                    src="https://www.youtube.com/embed/8Ywk_Cal0Qo?autoplay=1&mute=1&loop=1&playlist=8Ywk_Cal0Qo&controls=0&modestbranding=1&rel=0&start=522&enablejsapi=1"
                     title="Hero Video Background"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -56,7 +56,7 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-8"
                 >
-                    <button 
+                    <button
                         onClick={onBookNow}
                         className="w-full md:w-auto px-12 h-16 bg-white text-black font-sans uppercase text-[10px] tracking-[0.3em] rounded-custom hover:opacity-90 transition-all transform hover:scale-105 duration-500 shadow-2xl hover:shadow-primary/40 flex items-center justify-center whitespace-nowrap"
                     >
