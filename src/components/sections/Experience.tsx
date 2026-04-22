@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const experiences = [
     {
@@ -81,6 +82,24 @@ const Experience = () => {
                         </motion.div>
                     ))}
                 </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="mt-20 flex justify-center"
+                >
+                    <Link
+                        href="/experience"
+                        className="group relative px-12 py-5 bg-black text-white text-[10px] uppercase tracking-[0.4em] font-black hover:bg-accent transition-all duration-500 flex items-center gap-4 overflow-hidden"
+                    >
+                        <span className="relative z-10 transition-transform duration-500 group-hover:-translate-x-1">Discover Full Experience</span>
+                        <div className="relative z-10 w-6 h-[1px] bg-white group-hover:w-8 transition-all duration-500" />
+                        
+                        {/* Decorative background shimmers */}
+                        <div className="absolute inset-0 bg-white/5 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );
