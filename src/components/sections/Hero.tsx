@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
     return (
@@ -62,9 +63,9 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                     >
                         Book the experience
                     </button>
-                    <button className="w-full md:w-auto px-12 h-16 text-white border border-white/40 font-sans uppercase text-[10px] tracking-[0.3em] hover:text-secondary hover:border-secondary transition-all duration-300 rounded-custom flex items-center justify-center whitespace-nowrap">
+                    <Link href="/experience" className="w-full md:w-auto px-12 h-16 text-white border border-white/40 font-sans uppercase text-[10px] tracking-[0.3em] hover:text-secondary hover:border-secondary transition-all duration-300 rounded-custom flex items-center justify-center whitespace-nowrap">
                         Discover the culture
-                    </button>
+                    </Link>
                 </motion.div>
             </div>
 
