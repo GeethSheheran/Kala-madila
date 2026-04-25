@@ -71,9 +71,9 @@ const Footer = () => {
                     <div className="md:col-span-2 space-y-8 flex flex-col items-center text-center md:items-start md:text-left">
                         <h3 className="text-[10px] uppercase tracking-[0.4em] font-black text-accent">Connect</h3>
                         <ul className="space-y-4 text-sm text-monochrome-400 font-sans font-light">
-                            <li className="flex items-center gap-3 justify-center md:justify-start">
-                                <MapPin size={14} className="text-accent" />
-                                Colombo, Sri Lanka
+                            <li className="flex items-start gap-3 justify-center md:justify-start">
+                                <MapPin size={14} className="text-accent mt-1" />
+                                <span className="max-w-[200px]">No 27/1, jayanthi road, dadalla, galle, sri lanka</span>
                             </li>
                             <li className="flex items-center gap-3 justify-center md:justify-start">
                                 <Mail size={14} className="text-accent" />
@@ -81,7 +81,9 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3 justify-center md:justify-start">
                                 <Phone size={14} className="text-accent" />
-                                +94 11 234 5678
+                                <a href="https://wa.me/94769413002" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                                    076 941 3002
+                                </a>
                             </li>
                         </ul>
                     </div>
