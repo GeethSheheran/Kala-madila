@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Send, User, Mail, Phone, Calendar, MessageSquare, X, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "framer-motion";
+import emailjs from '@emailjs/browser';
 
 interface InquiryFormProps {
     isOpen?: boolean;
@@ -17,7 +18,6 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
         email: "",
         phone: "",
         date: "",
-        eventType: "Wedding",
         message: ""
     });
 
@@ -58,10 +58,27 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+        
+        try {
+            await emailjs.send(
+                'service_yukl3l8',
+                'template_pzvxqa8',
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    date: formData.date,
+                    message: formData.message,
+                },
+                'XWpD34s6mNANCNr7y'
+            );
+            setIsSubmitted(true);
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            alert('Failed to send inquiry. Please try again or contact us via WhatsApp.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
