@@ -13,6 +13,8 @@ import MarqueeSection from "@/components/sections/MarqueeSection";
 import InquiryForm from "@/components/sections/InquiryForm";
 import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
+import SEOJsonLd from "@/components/SEOJsonLd";
+import { homeJsonLd } from "@/lib/seo";
 import { useState } from "react";
 
 export default function Home() {
@@ -27,6 +29,7 @@ export default function Home() {
 
   return (
     <main className="relative bg-monochrome-950">
+      <SEOJsonLd data={homeJsonLd} />
       <Navbar onBookNow={() => setIsInquiryModalOpen(true)} />
 
       {/* Hero Section (Sticky Reveal) */}

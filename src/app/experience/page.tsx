@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import InquiryForm from "@/components/sections/InquiryForm";
+import SEOJsonLd from "@/components/SEOJsonLd";
+import { experienceJsonLd } from "@/lib/seo";
 import { Check, ArrowRight, Camera, Music, Flower2, Heart, MapPin, Sparkles } from "lucide-react";
 
 export default function ExperiencePage() {
@@ -58,6 +60,7 @@ export default function ExperiencePage() {
 
     return (
         <main className="relative bg-white overflow-hidden">
+            <SEOJsonLd data={experienceJsonLd} />
             <Navbar onBookNow={() => setIsInquiryModalOpen(true)} />
 
             {/* Hero Section */}
