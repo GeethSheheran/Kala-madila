@@ -26,7 +26,7 @@ export const homeJsonLd = {
     addressCountry: "LK",
   },
   telephone: "+94769413002",
-  email: "hello@kalamandila.com",
+  email: "info@kalamandila.com",
 };
 
 export const experienceJsonLd = {

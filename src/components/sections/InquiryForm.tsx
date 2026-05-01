@@ -58,7 +58,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        
+
         try {
             await emailjs.send(
                 'service_yukl3l8',
@@ -108,7 +108,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
 
                         <div className="space-y-6 pt-8">
                             {[
-                                { icon: Mail, label: "Email", value: "hello@kalamandila.com" },
+                                { icon: Mail, label: "Email", value: "info@kalamandila.com" },
                                 { icon: Phone, label: "Phone", value: "076 941 3002" }
                             ].map((item, idx) => (
                                 <motion.div
@@ -158,8 +158,8 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                                     </motion.div>
                                 </AnimatePresence>
                             </div>
-                            
-                           
+
+
                         </div>
                     </div>
                 )}

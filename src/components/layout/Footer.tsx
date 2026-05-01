@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Mail, Phone, MapPin, Send } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone, MapPin, Send, Youtube } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Footer = () => {
@@ -13,9 +13,9 @@ const Footer = () => {
     ];
 
     const socialLinks = [
-        { icon: Instagram, href: "#", name: "Instagram" },
-        { icon: Facebook, href: "#", name: "Facebook" },
-        { icon: Mail, href: "mailto:hello@kalamandila.com", name: "Email" },
+        { icon: Youtube, href: "https://www.youtube.com/channel/UCJG81zlgcca54M2yCFYtl0Q/videos", name: "Youtube" },
+        { icon: Facebook, href: "https://www.facebook.com/kalamandila/", name: "Facebook" },
+        { icon: Mail, href: "mailto:info@kalamandila.com", name: "Email" },
     ];
 
     return (
@@ -73,11 +73,11 @@ const Footer = () => {
                         <ul className="space-y-4 text-sm text-monochrome-400 font-sans font-light">
                             <li className="flex items-start gap-3 justify-center md:justify-start">
                                 <MapPin size={14} className="text-accent mt-1" />
-                                <span className="max-w-[200px]">No 27/1, jayanthi road, dadalla, galle, sri lanka</span>
+                                <span className="max-w-[200px] uppercase">No 27/1,<br/> jayanthi road<br/>dadalla, galle,<br/> sri lanka</span>
                             </li>
                             <li className="flex items-center gap-3 justify-center md:justify-start">
                                 <Mail size={14} className="text-accent" />
-                                hello@kalamandila.com
+                                info@kalamandila.com
                             </li>
                             <li className="flex items-center gap-3 justify-center md:justify-start">
                                 <Phone size={14} className="text-accent" />
@@ -110,16 +110,16 @@ const Footer = () => {
                 <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] uppercase tracking-[0.5em] text-monochrome-600 font-black">
                     <p>© 2026 KALA MANDILA. ALL RIGHTS RESERVED.</p>
                     <div className="flex gap-2 items-center">
-    <span>Designed & Developed by</span>
-    <a
-        href="https://tourithm.lk/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-accent hover:opacity-80 transition-opacity"
-    >
-        Tourithm
-    </a>
-</div>
+                        <span>Designed & Developed by</span>
+                        <a
+                            href="https://tourithm.lk/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-accent hover:opacity-80 transition-opacity"
+                        >
+                            Tourithm
+                        </a>
+                    </div>
                 </div>
             </div>
 
