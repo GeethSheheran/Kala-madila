@@ -1,36 +1,42 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
+    const [loadVideo, setLoadVideo] = useState(false);
+
+    useEffect(() => {
+        // Force iframe mount AFTER page load (fixes first-visit autoplay issue)
+        const timer = setTimeout(() => {
+            setLoadVideo(true);
+        }, 100); // small delay = key trick
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <section id="home" className="relative w-full h-screen flex py-24 items-center md:items-end justify-center md:justify-start overflow-hidden">
-            {/* Background with Parallax effect */}
-            {/* Video Background */}
+            
+            {/* 🔥 Video Background */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <iframe
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500%] h-[500%] md:w-[300%] md:h-[300%] lg:w-[180%] lg:h-[180%] object-cover min-w-full min-h-full"
-                    src="https://www.youtube.com/embed/8Ywk_Cal0Qo?autoplay=1&mute=1&loop=1&playlist=8Ywk_Cal0Qo&controls=0&modestbranding=1&rel=0&start=522&enablejsapi=1&iv_load_policy=3&disablekb=1&fs=0&showinfo=0"
-                    title="Hero Video Background"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                />
+                
+                {loadVideo && (
+                    <iframe
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen scale-[1.8] md:scale-[1.5] lg:scale-[1.3]"
+                        src="https://www.youtube.com/embed/8Ywk_Cal0Qo?autoplay=1&mute=1&loop=1&playlist=8Ywk_Cal0Qo&controls=0&modestbranding=1&rel=0&start=522&playsinline=1"
+                        title="Hero Video Background"
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                    />
+                )}
+
                 <div className="absolute inset-0 bg-black/60" />
             </div>
 
             {/* Content */}
             <div className="relative z-10 text-center md:text-left px-6 md:px-24 py-20 md:py-32 max-w-5xl text-white flex flex-col items-center md:items-start">
-                {/* <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="inline-block text-xs md:text-sm uppercase tracking-[0.4em] mb-6 font-sans"
-                >
-                    Kala Mandila Presents
-                </motion.span> */}
 
                 <motion.h1
                     initial={{ opacity: 0, y: 40 }}
@@ -59,11 +65,15 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                 >
                     <button
                         onClick={onBookNow}
-                        className="w-full md:w-auto px-12 h-16 bg-white text-black font-sans uppercase text-[10px] tracking-[0.3em] rounded-custom hover:opacity-90 transition-all transform hover:scale-105 duration-500 shadow-2xl hover:shadow-primary/40 flex items-center justify-center whitespace-nowrap"
+                        className="w-full md:w-auto px-12 h-16 bg-white text-black font-sans uppercase text-[10px] tracking-[0.3em] rounded-custom hover:opacity-90 transition-all transform hover:scale-105 duration-500 shadow-2xl"
                     >
                         Book the experience
                     </button>
-                    <Link href="/experience" className="w-full md:w-auto px-12 h-16 text-white border border-white/40 font-sans uppercase text-[10px] tracking-[0.3em] hover:text-secondary hover:border-secondary transition-all duration-300 rounded-custom flex items-center justify-center whitespace-nowrap">
+
+                    <Link
+                        href="/experience"
+                        className="w-full md:w-auto px-12 h-16 text-white border border-white/40 font-sans uppercase text-[10px] tracking-[0.3em] hover:text-secondary hover:border-secondary transition-all duration-300 rounded-custom flex items-center justify-center"
+                    >
                         Discover the culture
                     </Link>
                 </motion.div>
@@ -80,7 +90,7 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                 <div className="w-[1px] h-12 bg-white/30 relative overflow-hidden">
                     <motion.div
                         animate={{ y: [0, 48, 0] }}
-                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                        transition={{ repeat: Infinity, duration: 2 }}
                         className="w-full h-1/2 bg-accent absolute top-0 left-0"
                     />
                 </div>

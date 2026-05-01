@@ -109,10 +109,17 @@ const Footer = () => {
                 {/* Footer Bottom */}
                 <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] uppercase tracking-[0.5em] text-monochrome-600 font-black">
                     <p>© 2026 KALA MANDILA. ALL RIGHTS RESERVED.</p>
-                    <div className="flex gap-8">
-                        <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-accent transition-colors">Terms of Use</a>
-                    </div>
+                    <div className="flex gap-2 items-center">
+    <span>Designed & Developed by</span>
+    <a
+        href="https://tourithm.lk/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:opacity-80 transition-opacity"
+    >
+        Tourithm
+    </a>
+</div>
                 </div>
             </div>
 
