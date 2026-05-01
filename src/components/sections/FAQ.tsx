@@ -11,8 +11,8 @@ const faqs = [
         answer: "We recommend booking at least 6-12 months in advance for weddings, especially during peak seasons (December-April). For smaller sessions or elopements, 3-4 months is usually sufficient."
     },
     {
-        question: "Do you travel for destination weddings?",
-        answer: "Absolutely! While we are based in Sri Lanka, we love capturing stories around the world. Travel and accommodation fees apply for locations outside of our primary service areas."
+        question: "Do you offer this experience across Sri Lanka?",
+        answer: "Currently, Kala Mandila experiences are offered exclusively in Galle and selected locations in the Southern region of Sri Lanka. This allows us to deliver a high-quality, well-curated traditional experience in the most beautiful coastal and cultural settings."
     },
     {
         question: "What is included in the photography packages?",

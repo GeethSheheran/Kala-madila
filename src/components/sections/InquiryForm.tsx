@@ -109,7 +109,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                         <div className="space-y-6 pt-8">
                             {[
                                 { icon: Mail, label: "Email", value: "hello@kalamandila.com" },
-                                { icon: Phone, label: "Phone", value: "+94 77 123 4567" }
+                                { icon: Phone, label: "Phone", value: "076 941 3002" }
                             ].map((item, idx) => (
                                 <motion.div
                                     key={item.label}
