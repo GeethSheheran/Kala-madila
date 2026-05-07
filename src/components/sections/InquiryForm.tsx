@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Send, User, Mail, Phone, Calendar, MessageSquare, X, Star } from "lucide-react";
+import { Send, User, Mail, Phone, Calendar, MessageSquare, X, Star, Youtube, Facebook } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "framer-motion";
 import emailjs from '@emailjs/browser';
@@ -88,7 +88,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
 
     const formContent = (
         <div className={cn("max-w-7xl pt-24  mx-auto", !isOpen && "px-6", isOpen && "max-w-4xl pt-12 pb-20")}>
-            <div className={cn("grid grid-cols-1 gap-20 items-start", !isOpen && "lg:grid-cols-2")}>
+            <div className={cn("grid grid-cols-1 gap-12 lg:gap-16 items-start", !isOpen && "lg:grid-cols-2")}>
                 {/* Left Side: Content (Hidden in Modal) */}
                 {!isOpen && (
                     <div className="space-y-8">
@@ -106,7 +106,7 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                             </p>
                         </motion.div>
 
-                        <div className="space-y-6 pt-8">
+                        <div className="space-y-6 pt-6">
                             {[
                                 { icon: Mail, label: "Email", value: "info@kalamandila.com" },
                                 { icon: Phone, label: "Phone", value: "076 941 3002" }
@@ -128,6 +128,30 @@ const InquiryForm = ({ isOpen, onClose }: InquiryFormProps) => {
                                     </div>
                                 </motion.div>
                             ))}
+
+                            {/* Social Links */}
+                            <div className="flex gap-4 pt-6">
+                                {[
+                                    { icon: Youtube, href: "https://www.youtube.com/channel/UCJG81zlgcca54M2yCFYtl0Q/videos", name: "Youtube" },
+                                    { icon: Facebook, href: "https://www.facebook.com/kalamandila/", name: "Facebook" },
+                                    { icon: Mail, href: "mailto:info@kalamandila.com", name: "Email" },
+                                ].map((social, idx) => (
+                                    <motion.a
+                                        key={social.name}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.3 + idx * 0.1 }}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-10 h-10 bg-white border border-monochrome-200 rounded-custom flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-500 group"
+                                        aria-label={social.name}
+                                    >
+                                        <social.icon size={18} className="transition-transform duration-500 group-hover:scale-110" />
+                                    </motion.a>
+                                ))}
+                            </div>
                         </div>
 
                         {/* Testimonials Slider */}

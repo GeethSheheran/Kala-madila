@@ -65,7 +65,7 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
         <nav
             className={cn(
                 "fixed top-0 left-0 w-full z-50 transition-all duration-700 px-6 md:px-12",
-                isScrolled ? "py-4 bg-black/20 backdrop-blur-xl border-b border-white/5" : "py-8 bg-transparent"
+                isScrolled ? "py-5 bg-black/20 backdrop-blur-xl border-b border-white/5" : "py-8 bg-transparent"
             )}
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between relative">
@@ -83,7 +83,7 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                             alt="Kala Mandila Logo"
                             className={cn(
                                 "w-20 h-20 md:w-28 md:h-28 object-contain transition-all duration-500",
-                                isScrolled ? "scale-75" : "scale-100"
+                                isScrolled ? "scale-70" : "scale-100"
                             )}
                         />
                     </a>

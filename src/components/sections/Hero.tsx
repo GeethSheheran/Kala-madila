@@ -23,13 +23,15 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 
                 {loadVideo && (
-                    <iframe
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen scale-[1.8] md:scale-[1.5] lg:scale-[1.3]"
-                        src="https://www.youtube.com/embed/8Ywk_Cal0Qo?autoplay=1&mute=1&loop=1&playlist=8Ywk_Cal0Qo&controls=0&modestbranding=1&rel=0&start=522&playsinline=1"
-                        title="Hero Video Background"
-                        frameBorder="0"
-                        allow="autoplay; encrypted-media"
-                    />
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover scale-[1.5] md:scale-[1.25]"
+                    >
+                        <source src="/CoverVideo.mp4" type="video/mp4" />
+                    </video>
                 )}
 
                 <div className="absolute inset-0 bg-black/60" />
