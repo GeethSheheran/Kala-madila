@@ -68,14 +68,23 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                 isScrolled ? "py-4 bg-black/20 backdrop-blur-xl border-b border-white/5" : "py-8 bg-transparent"
             )}
         >
-            <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="max-w-7xl mx-auto flex items-center justify-between relative">
                 {/* Left Side: Logo */}
                 <div className="flex items-center justify-start flex-1">
-                    <a href="#home" className={cn("flex items-center gap-2 group transition-opacity duration-300", isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100")}>
+                    <a
+                        href="#home"
+                        className={cn(
+                            "absolute left-0 top-1/2 -translate-y-1/2 z-10 group transition-all duration-500",
+                            isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+                        )}
+                    >
                         <img
                             src="/logo.png"
                             alt="Kala Mandila Logo"
-                            className="w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500"
+                            className={cn(
+                                "w-20 h-20 md:w-28 md:h-28 object-contain transition-all duration-500",
+                                isScrolled ? "scale-75" : "scale-100"
+                            )}
                         />
                     </a>
                 </div>
