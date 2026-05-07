@@ -23,15 +23,12 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 
                 {loadVideo && (
-                    <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover scale-[1.5] md:scale-[1.25]"
-                    >
-                        <source src="/CoverVideo.mp4" type="video/mp4" />
-                    </video>
+                    <iframe
+                        src="https://player.cloudinary.com/embed/?cloud_name=dsg7w43sm&public_id=CoverVideo_bvnuey&player[autoplay]=true&player[muted]=true&player[loop]=true&player[controls]=false"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen scale-[4.0] md:scale-[1.25] pointer-events-none"
+                        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                        frameBorder="0"
+                    />
                 )}
 
                 <div className="absolute inset-0 bg-black/60" />
