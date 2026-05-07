@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const WeddingStory = () => {
     return (
@@ -60,12 +61,13 @@ const WeddingStory = () => {
                             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
-                            className="relative z-10 overflow-hidden"
+                            className="relative z-10 overflow-hidden aspect-square"
                         >
-                            <img
+                            <Image
                                 src="/bride.png"
                                 alt="Kandyan Jewelry"
-                                className="w-full aspect-square object-cover scale-x-[-1] rounded-sm transition-all duration-1000 shadow-[0_40px_80px_-20px_rgba(226,239,112,0.1)]"
+                                fill
+                                className="object-cover scale-x-[-1] rounded-sm transition-all duration-1000 shadow-[0_40px_80px_-20px_rgba(226,239,112,0.1)]"
                             />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-1000" />
                         </motion.div>

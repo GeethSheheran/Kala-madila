@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // nodes as the original
 const whyChooseNodes = [
@@ -76,7 +77,13 @@ const WhyChoose = () => {
                                 >
                                     <div className="flex items-center gap-5 border-b border-monochrome-200/60 pb-5 group-hover:border-accent transition-colors duration-500">
                                         <div className="flex-shrink-0 text-monochrome-300 group-hover:scale-110 transition-transform duration-500">
-                                            <img src={item.icon} alt={item.title} className="w-[48px] h-[48px] object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-500" />
+                                            <Image 
+                                                src={item.icon} 
+                                                alt={item.title} 
+                                                width={48}
+                                                height={48}
+                                                className="object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-500" 
+                                            />
                                         </div>
                                         <h3 className="text-2xl font-serif text-monochrome-800 group-hover:text-accent transition-colors duration-500 tracking-tight">
                                             {item.title}
@@ -101,10 +108,11 @@ const WhyChoose = () => {
                         >
                             {/* Full Background Photograph with White Overlay */}
                             <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-                                <img 
+                                <Image 
                                     src="/attire1.png" 
                                     alt="Attire" 
-                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
                                 />
                                 {/* Premium White Overlay */}
                                 <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px] transition-colors duration-700 group-hover:bg-white/75" />

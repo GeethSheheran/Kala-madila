@@ -1,21 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Experience from "@/components/sections/Experience";
-import WeddingStory from "@/components/sections/WeddingStory";
-import WhyChoose from "@/components/sections/WhyChoose";
-import MarqueeSection from "@/components/sections/MarqueeSection";
-import InquiryForm from "@/components/sections/InquiryForm";
-import FAQ from "@/components/sections/FAQ";
-import CTA from "@/components/sections/CTA";
-import SEOJsonLd from "@/components/SEOJsonLd";
+
+// Below the fold sections - Dynamic Imports
+const Experience = dynamic(() => import("@/components/sections/Experience"));
+const WeddingStory = dynamic(() => import("@/components/sections/WeddingStory"));
+const WhyChoose = dynamic(() => import("@/components/sections/WhyChoose"));
+const MarqueeSection = dynamic(() => import("@/components/sections/MarqueeSection"));
+const InquiryForm = dynamic(() => import("@/components/sections/InquiryForm"));
+const FAQ = dynamic(() => import("@/components/sections/FAQ"));
+const CTA = dynamic(() => import("@/components/sections/CTA"));
+const Footer = dynamic(() => import("@/components/layout/Footer"));
+const SEOJsonLd = dynamic(() => import("@/components/SEOJsonLd"));
+
 import { homeJsonLd } from "@/lib/seo";
-import { useState } from "react";
 
 export default function Home() {
   const { scrollY } = useScroll();

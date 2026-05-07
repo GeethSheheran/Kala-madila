@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -78,9 +79,12 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                             isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
                         )}
                     >
-                        <img
+                        <Image
                             src="/logo.png"
                             alt="Kala Mandila Logo"
+                            width={112}
+                            height={112}
+                            priority
                             className={cn(
                                 "w-20 h-20 md:w-28 md:h-28 object-contain transition-all duration-500",
                                 isScrolled ? "scale-70" : "scale-100"

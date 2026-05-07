@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Mail, Phone, MapPin, Send, Youtube } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const Footer = () => {
     const navLinks = [
@@ -25,10 +26,12 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div className="md:col-span-5 space-y-8 flex flex-col items-center text-center md:items-start md:text-left">
                         <a href="#home" className="inline-block group transition-transform duration-500 hover:scale-105">
-                            <img
+                            <Image
                                 src="/logo.png"
                                 alt="Kala Mandila Logo"
-                                className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                                width={80}
+                                height={80}
+                                className="object-contain"
                             />
                         </a>
                         <div className="space-y-4 max-w-sm">

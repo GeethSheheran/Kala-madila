@@ -2,6 +2,9 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+
+const MotionImage = motion(Image);
 
 const marqueeImages = [
     "/nuwara1.png",
@@ -62,8 +65,9 @@ const MarqueeSection = () => {
         return () => clearInterval(interval);
     }, [visibleIndices]);
 
-    // Duplicate images for marquee
-    const doubledImages = [...marqueeImages, ...marqueeImages];
+    // Duplicate a subset of images for marquee to prevent massive network load
+    const marqueeSubset = marqueeImages.slice(0, 10);
+    const doubledImages = [...marqueeSubset, ...marqueeSubset];
 
     return (
         <section className="py-24 bg-white overflow-hidden relative">
@@ -105,10 +109,11 @@ const MarqueeSection = () => {
                             key={idx}
                             className="flex-shrink-0 w-64 aspect-[4/5] overflow-hidden rounded-sm group relative"
                         >
-                            <img
+                            <Image
                                 src={src}
                                 alt={`Marquee Mobile ${idx}`}
-                                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                fill
+                                className="object-cover transition-transform duration-1000 group-hover:scale-105"
                             />
                         </div>
                     ))}
@@ -124,14 +129,16 @@ const MarqueeSection = () => {
                             className={`${slot.class} overflow-hidden rounded-sm group relative cursor-pointer bg-monochrome-50`}
                         >
                             <AnimatePresence mode="wait">
-                                <motion.img
+                                <MotionImage
                                     key={visibleIndices[i]}
                                     src={marqueeImages[visibleIndices[i]]}
+                                    alt={`Gallery Desktop ${i}`}
+                                    fill
                                     initial={{ opacity: 0, scale: 1.1 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 1.5, ease: "easeInOut" }}
-                                    className="w-full h-full object-cover rounded-sm absolute inset-0"
+                                    className="object-cover rounded-sm absolute inset-0"
                                 />
                             </AnimatePresence>
                             

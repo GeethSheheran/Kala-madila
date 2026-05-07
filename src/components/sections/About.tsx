@@ -2,16 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const About = () => {
     return (
         <section id="about" className="section-spacing bg-white overflow-hidden py-24 relative">
             {/* Background Image Element */}
             <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none overflow-hidden select-none z-0">
-                <img
+                <Image
                     src="/aboutbg.png"
                     alt=""
-                    className="w-full h-full object-cover grayscale opacity-10"
+                    fill
+                    className="object-cover grayscale opacity-10"
                 />
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-white" />
             </div>
@@ -27,9 +29,11 @@ const About = () => {
                             transition={{ duration: 1.2, ease: "easeOut" }}
                             className="relative z-10 w-4/5 ml-auto"
                         >
-                            <img
+                            <Image
                                 src="/about-1.webp"
                                 alt="Kala Mandila Tradition"
+                                width={800}
+                                height={800}
                                 className="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)]"
                             />
                         </motion.div>
@@ -41,9 +45,11 @@ const About = () => {
                             transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
                             className="absolute -bottom-16 -left-8 w-3/5 z-20 border-[12px] border-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)]"
                         >
-                            <img
+                            <Image
                                 src="/about-2.JPG"
                                 alt="Traditional Photoshoot"
+                                width={600}
+                                height={600}
                                 className="w-full aspect-square object-cover"
                             />
                         </motion.div>

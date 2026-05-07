@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const experiences = [
     {
@@ -65,10 +66,11 @@ const Experience = () => {
                             className="group cursor-pointer"
                         >
                             <div className="relative aspect-[3/4] overflow-hidden mb-8 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] group-hover:shadow-[0_30px_60px_-12px_rgba(0,0,0,0.2)] transition-all duration-700 rounded-custom">
-                                <img
+                                <Image
                                     src={exp.image}
                                     alt={exp.title}
-                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-all duration-1000 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-700" />
                                 <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 transition-all duration-700 m-4" />

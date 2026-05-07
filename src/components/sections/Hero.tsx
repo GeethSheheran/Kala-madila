@@ -1,35 +1,26 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
-    const [loadVideo, setLoadVideo] = useState(false);
-
-    useEffect(() => {
-        // Force iframe mount AFTER page load (fixes first-visit autoplay issue)
-        const timer = setTimeout(() => {
-            setLoadVideo(true);
-        }, 100); // small delay = key trick
-
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
         <section id="home" className="relative w-full h-screen flex py-24 items-center md:items-end justify-center md:justify-start overflow-hidden">
             
             {/* 🔥 Video Background */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 
-                {loadVideo && (
-                    <iframe
-                        src="https://player.cloudinary.com/embed/?cloud_name=dsg7w43sm&public_id=CoverVideo_bvnuey&player[autoplay]=true&player[muted]=true&player[loop]=true&player[controls]=false"
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen scale-[4.0] md:scale-[1.25] pointer-events-none"
-                        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                        frameBorder="0"
-                    />
-                )}
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster="/hero-bg.png"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover scale-[1.1] pointer-events-none"
+                >
+                    <source src="https://res.cloudinary.com/dsg7w43sm/video/upload/q_auto,f_auto/CoverVideo_bvnuey.mp4" type="video/mp4" />
+                </video>
 
                 <div className="absolute inset-0 bg-black/60" />
             </div>
@@ -38,9 +29,9 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
             <div className="relative z-10 text-center md:text-left px-6 md:px-24 py-20 md:py-32 max-w-5xl text-white flex flex-col items-center md:items-start">
 
                 <motion.h1
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.2 }}
+                    initial={{ y: 40 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 1 }}
                     className="text-3xl md:text-6xl font-serif mb-2 leading-tight tracking-tight"
                 >
                     Step Into a Traditional <br />
@@ -48,9 +39,9 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                 </motion.h1>
 
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    initial={{ y: 20 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.8 }}
                     className="text-md md:text-lg font-sans mb-10 max-w-2xl mx-auto text-white/90 font-light leading-relaxed"
                 >
                     Experience the beauty of Sri Lanka’s timeless wedding traditions. Authentic attire, cultural ceremonies, and cinematic memories.
