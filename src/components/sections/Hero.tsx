@@ -3,21 +3,30 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
     return (
         <section id="home" className="relative w-full h-screen flex py-24 items-center md:items-end justify-center md:justify-start overflow-hidden">
-            
-            {/* 🔥 Video Background */}
+            {/* 🔥 Background Layer */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                {/* Optimized Poster for LCP */}
+                <Image
+                    src="/hero-bg.png"
+                    alt="Sri Lankan Wedding Background"
+                    fill
+                    priority
+                    fetchPriority="high"
+                    sizes="100vw"
+                    className="object-cover scale-[2]"
+                />
                 
                 <video
                     autoPlay
                     muted
                     loop
                     playsInline
-                    poster="/hero-bg.png"
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover scale-[1.4] pointer-events-none"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover scale-[2] pointer-events-none"
                 >
                     <source src="https://res.cloudinary.com/dsg7w43sm/video/upload/q_auto,f_auto/CoverVideo_bvnuey.mp4" type="video/mp4" />
                 </video>
