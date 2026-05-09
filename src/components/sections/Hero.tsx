@@ -17,7 +17,7 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                     loop
                     playsInline
                     poster="/hero-bg.png"
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover scale-[1.1] pointer-events-none"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover scale-[1.4] pointer-events-none"
                 >
                     <source src="https://res.cloudinary.com/dsg7w43sm/video/upload/q_auto,f_auto/CoverVideo_bvnuey.mp4" type="video/mp4" />
                 </video>

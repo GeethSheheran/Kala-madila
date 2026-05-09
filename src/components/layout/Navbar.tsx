@@ -86,8 +86,8 @@ const Navbar = ({ onBookNow }: { onBookNow?: () => void }) => {
                             height={112}
                             priority
                             className={cn(
-                                "w-20 h-20 md:w-28 md:h-28 object-contain transition-all duration-500",
-                                isScrolled ? "scale-70" : "scale-100"
+                                "w-20 h-20 md:w-28 md:h-28 object-contain transition-all duration-700",
+                                isScrolled ? "scale-60" : "scale-100"
                             )}
                         />
                     </a>
