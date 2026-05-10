@@ -28,7 +28,7 @@ const Hero = ({ onBookNow }: { onBookNow?: () => void }) => {
                     playsInline
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover scale-[2] pointer-events-none"
                 >
-                    <source src="https://res.cloudinary.com/dsg7w43sm/video/upload/q_auto,f_auto/CoverVideo_bvnuey.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dsg7w43sm/video/upload/q_auto,f_auto/CoverVideo_zmoh8t.mp4" type="video/mp4" />
                 </video>
 
                 <div className="absolute inset-0 bg-black/60" />

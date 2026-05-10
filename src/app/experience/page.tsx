@@ -64,7 +64,7 @@ export default function ExperiencePage() {
             <Navbar onBookNow={() => setIsInquiryModalOpen(true)} />
 
             {/* Hero Section */}
-            <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="https://cdn-5ff447a4c1ac19100810d94f.closte.com/wp-content/uploads/2021/11/wedding-sri-lanka-poruwa-kapuwa-mysrilankatravel-1-1024x678.jpg"
@@ -81,19 +81,17 @@ export default function ExperiencePage() {
                         transition={{ duration: 0.8 }}
                         className="mb-6 flex flex-col items-center gap-4"
                     >
-                        <span className="text-[10px] md:text-xs uppercase tracking-[0.6em] font-black text-secondary">
-                            Signature Cultural Journey
-                        </span>
-                        <div className="w-20 h-[1px] bg-secondary/50" />
+                        
+                        <div className="w-20 h-[1px] bg-accent/50" />
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 1 }}
-                        className="text-5xl md:text-8xl font-serif mb-8 tracking-tighter leading-tight"
+                        className="text-4xl md:text-7xl font-serif mb-2 tracking-tighter leading-tight"
                     >
                         The Kala Mandila <br />
-                        <span className="text-secondary">Experience</span>
+                        <span className="text-white">Experience</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
